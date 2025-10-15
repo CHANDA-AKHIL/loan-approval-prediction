@@ -1,6 +1,6 @@
 # ================================================
 # Loan Approval Prediction - Logistic Regression
-# Author: [Your Name]
+# Author: [Chanda Akhil]
 # Description: This script predicts loan approval status using Logistic Regression on Kaggle's synthetic dataset.
 # Includes data preprocessing, model training, ROC-AUC evaluation, and visualizations.
 # Dependencies: pandas, numpy, scikit-learn, matplotlib, seaborn
@@ -28,7 +28,7 @@ except FileNotFoundError as e:
     print(f"Error: {e}. Please download datasets and place in 'data/' folder.")
     exit(1)
 
-print("✅ Data loaded successfully!")
+print("Data loaded successfully!")
 print("Train shape:", train.shape)
 print("Test shape:", test.shape)
 
@@ -87,7 +87,7 @@ model.fit(X_train_scaled, y_train)
 # ================================================
 y_pred_prob = model.predict_proba(X_valid_scaled)[:, 1]
 roc_auc = roc_auc_score(y_valid, y_pred_prob)
-print(f"✅ Validation ROC-AUC: {roc_auc:.4f}")
+print(f" Validation ROC-AUC: {roc_auc:.4f}")
 
 # ================================================
 # 8. Predict on Test Set and Create Submission File
@@ -99,7 +99,7 @@ submission = pd.DataFrame({
     target: test_pred
 })
 submission.to_csv('submission.csv', index=False)
-print("✅ Submission file created successfully: submission.csv")
+print("Submission file created successfully: submission.csv")
 
 # ================================================
 # 9. Visualizations
@@ -140,4 +140,5 @@ plt.tight_layout()
 plt.savefig('visualizations/roc_curve_loan.png', dpi=300, bbox_inches='tight')
 plt.show()
 
-print("✅ All visualizations saved!")
+
+print("All visualizations saved!")
